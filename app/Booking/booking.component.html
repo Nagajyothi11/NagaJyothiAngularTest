@@ -1,0 +1,49 @@
+<p>Booking started</p>
+<form #userform="ngForm">
+    <table>
+
+        <h1>Booking Page</h1>
+
+        <tr>
+            <td><label>Id</label></td>
+            <td> <input #idField="ngModel" type="text" name="id" [(ngModel)]="booking.id" required>
+                <span *ngIf="idField.invalid && idField.touched">User id is Must</span>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Room</label></td>
+            <td>
+                <input #roomField="ngModel" type="text" name="room" [(ngModel)]="booking.room" > 
+            <span *ngIf ="roomField.invalid && emailField.touched"></span>
+            </td>
+        </tr>
+        <tr>
+            <td><label>User</label></td>
+            <td>
+                <input #userField="ngModel" type="text" name="user" [(ngModel)]="booking.user" required> 
+            <span *ngIf ="userField.invalid && userField.touched">user is Must</span>
+            </td>
+        </tr>
+                <tr>
+            <td><label>purpose</label></td>
+            <td>
+                <input #purposeField="ngModel" type="text" name="purpose" [(ngModel)]="booking.purpose" required> 
+            <span *ngIf ="purposeField.invalid && purposeField.touched"></span>
+            </td>
+        </tr>
+                <tr>
+            <td><label>Participants</label></td>
+            <td>
+                <input #ParticipantsField="ngModel" type="text" name="participants" [(ngModel)]="booking.partcipants" required> 
+            <span *ngIf ="participantsField.invalid && userField.touched">partcipants is Must</span>
+            </td>
+        </tr>
+        <td><label>Booking</label></td>
+
+        <td>
+
+            <input type="button"[disabled]="userform.invalid" value="Booking" (click)="performBooking()">
+
+
+        </td>
+    </table>

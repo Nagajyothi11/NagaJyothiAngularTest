@@ -1,0 +1,36 @@
+<p>register works!</p>
+<form #userform="ngForm">
+    <table>
+
+        <h1>Registration Page</h1>
+
+        <tr>
+            <td><label>PhoneNumber</label></td>
+            <td> <input #PhoneNumberField="ngModel" type="text" name="id" [(ngModel)]="register.PhoneNumber" required>
+                <span *ngIf="PhoneNumberField.invalid && PhoneNumberField.touched">User PhoneNumber is Must</span>
+            </td>
+        </tr>
+        <tr>
+            <td><label>TypeofRoom</label></td>
+            <td>
+                <input #TypeofroomField="ngModel" type="text" name="Typeofroom" [(ngModel)]="register.Typeofroom" > 
+            <span *ngIf ="TypeofroomField.invalid && emailField.touched"></span>
+            </td>
+        </tr>
+        <tr>
+            <td><label>UserName</label></td>
+            <td>
+                <input #userNameField="ngModel" type="text" name="userName" [(ngModel)]="register.userName" required> 
+            <span *ngIf ="userNameField.invalid && userField.touched">userName is Must</span>
+            </td>
+        </tr>
+               
+        <td><label>Register</label></td>
+
+        <td>
+
+            <input type="button"[disabled]="userform.invalid" value="Register" (click)="performRegistration()">
+
+
+        </td>
+    </table>
